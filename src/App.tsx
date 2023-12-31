@@ -1,9 +1,17 @@
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+
+import Card from "./components";
+
+const queryClient = new QueryClient()
 
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <QueryClientProvider client={queryClient}>
+      <Card />
+    </QueryClientProvider>
   )
 }
 
