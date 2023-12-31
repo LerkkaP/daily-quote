@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Quote } from "../types";
 
 const url = "http://localhost:3000/dailyquote"
-
 export const getQuote = async () => {
     const { data } = await axios.get<Quote[]>(url);
     return data;

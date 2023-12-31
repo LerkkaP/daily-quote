@@ -1,8 +1,18 @@
+import { useQuote } from "../services/quote";
+
 const Card = () => {
-    return (
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+  const { isPending, error, data } = useQuote();
+
+  if (isPending) return 'Loading...'
+
+  if (error) return 'An error has occurred: '
+
+  const quote = data[0];
+
+  return (
+    <div>
+      <h1>{quote.quote}</h1>
+    </div>
     )
   }
 
