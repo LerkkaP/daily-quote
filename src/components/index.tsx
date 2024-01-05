@@ -14,12 +14,12 @@ const Card = () => {
   const author: string = "Chinese Proverb";
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center italic">
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="dark h-screen flex flex-col items-center justify-center font-playfair">
+      <div className="max-w-sm rounded-md overflow-hidden shadow-lg">
         <div className="px-6 py-10">
           <blockquote>
             &ldquo;{quote}&rdquo;
-            <footer className="text-right">&mdash; {author}</footer>
+            <footer className="text-right italic">&mdash; {author}</footer>
           </blockquote>
         </div>
       </div>
