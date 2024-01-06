@@ -1,14 +1,9 @@
-//import { useQuote } from "../services/quote";
+import { useQuote } from "../services/quote";
 import { useState, useEffect } from "react";
 
 const Card = () => {
   const [darkMode, setDarkMode] = useState(false);
-  /*const { isPending, error, data } = useQuote();
-  if (isPending) return 'Loading...'
-
-  if (error) return 'An error has occurred: '
-
-  const quote = data[0];*/
+  const { isPending, error, data } = useQuote();
 
   useEffect(() => {
     if (darkMode) {
@@ -18,12 +13,15 @@ const Card = () => {
     }
   }, [darkMode]);
 
-  const quote: string = "He who cheats the earth will be cheated by the earth.";
+  if (isPending) return "Loading...";
 
-  const author: string = "Chinese Proverb";
+  if (error) return "An error has occurred: ";
+
+  const quote: string = data[0]["q"];
+  const author: string = data[0]["a"];
 
   return (
-    <div className="bg-white dark:bg-gray-800 h-screen flex flex-col items-center justify-center font-playfair">
+    <div className="leading-relaxed bg-white dark:bg-gray-800 h-screen flex flex-col items-center justify-center font-playfair">
       <label className="relative inline-flex items-center cursor-pointer pb-5">
         <input
           type="checkbox"
@@ -59,4 +57,3 @@ const Card = () => {
 };
 
 export default Card;
-//peer-focus:ring-4 peer-focus:ring-blue-300
