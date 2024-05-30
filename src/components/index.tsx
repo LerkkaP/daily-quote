@@ -1,9 +1,7 @@
-import { useQuote } from "../services/quote";
 import { useState, useEffect } from "react";
 
 const Card = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const { isPending, error, data } = useQuote();
 
   useEffect(() => {
     if (darkMode) {
@@ -13,12 +11,8 @@ const Card = () => {
     }
   }, [darkMode]);
 
-  if (isPending) return "Loading...";
-
-  if (error) return "An error has occurred: ";
-
-  const quote: string = data[0]["q"];
-  const author: string = data[0]["a"];
+  /*const quote: string = data[0]["q"];
+  const author: string = data[0]["a"];*/
 
   return (
     <div className="leading-relaxed bg-white dark:bg-gray-800 h-screen flex flex-col items-center justify-center font-playfair">
